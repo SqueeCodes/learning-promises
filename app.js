@@ -22,13 +22,19 @@
 // main();
 
 
+const statusRef = document.querySelector('.status')
+
 function getSubscriptionStatus() {
     return new Promise((resolve, reject) => {
-        resolve("VIP")
+        setTimeout(() => {
+            resolve("VIP")
+        }, 2000);
     })
 }
-getSubscriptionStatus().then(response => console.log(response))
+// getSubscriptionStatus().then(response => console.log(response))
 async function main() {
-    console.log(await getSubscriptionStatus())
+    const status = (await getSubscriptionStatus())
+    statusRef.innerHTML = status
 }
-console.log(getSubscriptionStatus())
+
+main();
