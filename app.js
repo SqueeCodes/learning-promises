@@ -1,6 +1,6 @@
 
-const emailRef = document.querySelector(".email");
-console.log(emailRef)
+// const emailRef = document.querySelector(".email");
+// console.log(emailRef)
 
 // 1. Then
 // fetch("https://jsonplaceholder.typicode.com/users/1")
@@ -13,14 +13,22 @@ console.log(emailRef)
 
 
 //2. Async/Await
-async function main() {
-    console.log(1)
-    const response = await fetch("https://jsonplaceholder.typicode.com/users/1")
-    console.log(2)
-    const data = await response.json()
-    console.log(3)
-    console.log(data)
-    emailRef.innerHTML = data.email
-}
+// async function main() {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/users/1")
+//     const data = await response.json()
+//     emailRef.innerHTML = data.email
+// }
 
-main();
+// main();
+
+
+function getSubscriptionStatus() {
+    return new Promise((resolve, reject) => {
+        resolve("VIP")
+    })
+}
+getSubscriptionStatus().then(response => console.log(response))
+async function main() {
+    console.log(await getSubscriptionStatus())
+}
+console.log(getSubscriptionStatus())
